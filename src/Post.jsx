@@ -1,5 +1,16 @@
-export function Post () {
-    return <h1>Eu sou um post risos risos</h1>
+/*eslint-disable*/
+
+//props é um objeto que contém todas as propriedades que foram passadas para o componente
+export function Post(props) {
+    console.log(props);
+    //para exibir conteudo de variavel js no html, use {}
+    return (
+        <div>
+            <strong>{props.author}</strong>
+            <h1>Eu sou um post e esse é meu conteúdo: {props.content}</h1>
+        </div>
+    )
+
 }
 
 //export default Post;
@@ -13,6 +24,7 @@ export function Post () {
     * se tentar mudar o nome na hora de importar o componenete não renderiza
     * para importar, usa o padrao "import { Tralala } from './Tralala'" 
 */
+
 
 
 
