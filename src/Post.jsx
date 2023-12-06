@@ -11,5 +11,8 @@ export function Post () {
   * Named você exporta assim: export funcion Tralala () {console.log ('risos risos')};
     * ou seja, exporto já na hora de criar a função
     * se tentar mudar o nome na hora de importar o componenete não renderiza
+    * para importar, usa o padrao "import { Tralala } from './Tralala'" 
 */
+
+
 
