@@ -1,0 +1,43 @@
+React
+
+* É uma biblioteca, não um framework
+* Biblioteca para manipulação de interfaces na web
+* Rendering Patterns
+	* SSR (tradicional)
+		* Primeiro que surgiu onde temos server-side rendering
+		* A cada requisição do usuário, o servidor (com front e back juntos lá)
+		  vai processar, gerar todo o html, css e lógica de banco e entregar a 
+		  página para o usuário
+			* Enquanto não processa requisição, tela fica branca
+	* SPA
+		* A cada requisição o servidor back end só retorna informações em .json
+		  não fica mais com as lógicas de front-end
+		* Aí outra aplicação, a front-end, obtem os dados em json e converte para 
+		  css e html e js
+		* Podemos ter várias apps front-end para cada tipo de interface, por exemplo
+		* Múltiplos front-end consumindo dados da mesma aplicação back-end
+
+Compilers e Bundlers
+
+* Compilers são os que transformam codigos de uma versao js para outra que rode no seu servidor
+* Bundlers: webpack	
+	* pega vários arquivos e junta em um só para mandar para o navegador processar
+* ES Modules: forma que navegadores possuem para exportar e importar arquivos;
+* Agora navegadores usam esses es modules para fazer essa importação de arquivos de forma nativa
+	* VITE é uma solução que se aproveita disso, ou seja, faz o mesmo que o webpack mas sem precisar
+	  de bundlering;
+	  	* Ele tem compiler interno também, sem precisar de um separado (tipo o babel)
+
+PRÁTICA
+
+* npm create vite@latest : cria um projeto vite para você configurar e usar
+* npm install : apos entrar na pasta do projeto vite execute isso para instalar dependencia
+* npm run dev : roda a aplicação recem criada, uma previa
+* limpeza: tira os arquivos .css e elimina as referencias a eles; tira todos os svg e as referencias a eles no código; limpa dentro do return do app.jsx
+
+COMPONENTES
+
+
+
+		  
+		
