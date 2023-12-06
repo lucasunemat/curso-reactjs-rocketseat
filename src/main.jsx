@@ -5,6 +5,7 @@ import App from './App.jsx'
 //metodo createRoot recebe elemento raiz da página e renderiza todos os componentes dentro desse elemento
 //no caso, dentro da div com id root
 //ali dentro ele está citando os componentes que serão renderizados
+//o app é uma rquivo com função que retorna um HTML
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App /> 
