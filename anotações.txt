@@ -37,7 +37,19 @@ PRÁTICA
 
 COMPONENTES
 
+* Deslocar, um pedaço da interface que pode ser repetida varias vezes com info. diferentes se necessário
+* componente: fnunção que retorna html
+* todos os componentes = jsx = javascript + xml
 
+PROPRIEDADES
+
+* Propriedades são informações que passamos para os componentes
+* É o que pode diferenciar conteudo de um componente em relação ao outro
+
+CSS Modules
+
+* css modular para afetar apenas componentes em especifico;
+* cada classe usada gera um hash único de identificação;
 
 		  
 		
