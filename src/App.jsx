@@ -1,21 +1,30 @@
 import { Post } from './Post'; // Importamos o componente Post
 import { Header } from './components/Header';
-import './global.css' //sempre importar os estilos nos arquivos java
+import styles from './App.module.css';
+import './global.css' //sempre importar os estilos nos arquivos javascript
 
 export function App() { //componentes sempre com letra maiuscula para não confundir com html
   //impossível renderizar varios componentes sem ter outro componente que os englobe (nesse caso, div)
   return (
     <div>
       <Header />
-      <Post author="Winy Zanin"
-        content="lorem ipsum"
-      />
-      <Post author="Lucas Isidoro"
-        content="lorem ipsum legal"
-      />
+      <div className={styles.wrapper}>
+        <aside>
+          sidebar
+        </aside>
+        <main>
+          <Post author="Winy Zanin"
+            content="lorem ipsum"
+          />
+          <Post author="Lucas Isidoro"
+            content="lorem ipsum legal"
+          />
+        </main>
+      </div>
     </div>
   )
 }
+
 
 
 
