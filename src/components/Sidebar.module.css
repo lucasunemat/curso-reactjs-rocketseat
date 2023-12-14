@@ -1,0 +1,21 @@
+.sidebar {
+    background: --var(gray-800);
+    border-radius: 8px;
+    overflow: hidden;
+    /*serve para que todo excesso de imagem seja escondido, e ela ocupe a forma arredondada do sidebar*/
+}
+
+.cover {
+    width: 100%;
+    /*imagem aparecer inteira*/
+    height: 72px;
+    object-fit: cover;
+    /*serve para que a imagem ocupe todo o espaço do elemento que agora tem tamanho fixo*/
+    /*mostra centro da imagem cortando partes*/
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
