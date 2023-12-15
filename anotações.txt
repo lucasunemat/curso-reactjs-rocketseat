@@ -51,5 +51,8 @@ CSS Modules
 * css modular para afetar apenas componentes em especifico;
 * cada classe usada gera um hash único de identificação;
 
+SOBRE ESTRUTURA DE PASTAS
+
+* Não estruture tudo antes de codar
 		  
 		

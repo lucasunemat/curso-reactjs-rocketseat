@@ -3,14 +3,16 @@
  * sempre tenta usar CLASSES aqui, somente.
  */
 
- .header {
-    background-color: var(gray-800);
-    display: flex;
-    justify-content: center;
-    height: 80px;
-    padding: 1.25rem 0;
- }
+.header {
+   align-items: center;
+   background-color: var(gray-800);
+   display: flex;
+   justify-content: center;
+   height: 80px;
+   padding: 1.25rem 0;
+   gap: 0.5rem;
+}
 
- .header img {
-    height: 2rem;
- }
+.header img {
+   height: 2rem;
+}
