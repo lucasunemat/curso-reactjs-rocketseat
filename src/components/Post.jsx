@@ -29,6 +29,19 @@ export function Post() {
 
                 <p>excepturi <a href="">vero dolore ratione</a> soluta ea!</p>
             </div>
+
+            <form className={styles.commentForm}>
+                <strong>Deixe seu feedback!</strong>
+
+                <textarea
+                    placeholder='Deixe seu comentário :)'
+                />
+
+                <footer>
+                    <button type='submit'>Comentar</button>
+                </footer>
+
+            </form>
         </article>
     );
 }
