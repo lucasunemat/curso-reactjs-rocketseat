@@ -54,5 +54,10 @@ CSS Modules
 SOBRE ESTRUTURA DE PASTAS
 
 * Não estruture tudo antes de codar
+
+COMO IDENTIFICAR COMPONENTES:
+
+* Se repete muito em tela com mesma estilização ou quase a mesma, com mesmo comportamento, etc;
+* Se você tem um componente maior e pode tirar um componente menor sem fazer o maior perder funcionalidade dele;
 		  
 		
