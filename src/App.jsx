@@ -14,6 +14,8 @@ export function App() { //componentes sempre com letra maiuscula para não confu
         <Sidebar />
         <main>
           <Post />
+          <Post />
+          <Post />
         </main>
       </div>
     </div>

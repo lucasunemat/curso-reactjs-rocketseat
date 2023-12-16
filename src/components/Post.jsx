@@ -12,7 +12,7 @@ export function Post() {
                     />
 
                     <div className={styles.authorInfo}>
-                        <span>Lucas Batista</span>
+                        <strong>Lucas Batista</strong>
                         <span>Analista de Negócio</span>
                     </div>
                 </div>
