@@ -6,7 +6,14 @@ import { Comment } from './Comment';
 import styles from './Post.module.css';
 
 //isso é para evitar repetir props.author. O que tô fazendo é destructuring (pegando a propriedade author dentro do objeto props)
-export function Post({ author, publishedAt, content }) {
+
+const comments = [
+    1,
+    2,
+    3
+]
+
+export function Post({ author, publishedAt, content }) { //antes tinha "props" aqui, só para lembrar
 
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -62,9 +69,9 @@ export function Post({ author, publishedAt, content }) {
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map(comment => {
+                    return <Comment />
+                })}
             </div>
         </article>
     );
