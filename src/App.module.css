@@ -8,3 +8,13 @@
     gap: 2rem; /*espaço entre as colunas de 32px*/
     align-items: flex-start; /*sempre fique alinhado com topo sem esticar os dois pra ficar do mesmo tamanho */
 }
+
+@media(max-width: 768px) {
+    .html {
+        font-size: 87.5%; /*14px, pois o elemento raiz tem root 16px*/
+    }
+    
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
