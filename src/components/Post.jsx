@@ -1,28 +1,31 @@
+/*eslint-disable*/
+import { format } from 'date-fns';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
 
-export function Post(props) {
+//isso é para evitar repetir props.author. O que tô fazendo é destructuring (pegando a propriedade author dentro do objeto props)
+export function Post({ author, publishedAt }) {
 
-    console.log(props);
+    const publishedDateFormated = format(publishedAt, "dd MMM yyyy 'às' HH:mm:ss");
 
     return (
         <article className={styles.post}>
             <header>
                 <div className={styles.author}>
 
-                    <Avatar
-                        src="https://github.com/lucasunemat.png"
+                    <Avatar //o src abaixo é uma PROPRIEDADE (props) do componente Avatar
+                        src={author.avatarUrl} //estou puxando o author que aparece no objeto dentro da iteração no App.jsx
                         alt=""
                     />
 
                     <div className={styles.authorInfo}>
-                        <strong>Lucas Batista</strong>
-                        <span>Analista de Negócio</span>
+                        <strong>{author.name}</strong>
+                        <span>{author.role}</span>
                     </div>
                 </div>
 
-                <time title="11 de Maio às 08h13min." dateTime="2022-05-11 08:13:30">Publicado há 1h</time>
+                <time title="11 de Maio às 08h13min." dateTime="2022-05-11 08:13:30">{publishedDateFormated}</time>
             </header>
 
             <div className={styles.content}>

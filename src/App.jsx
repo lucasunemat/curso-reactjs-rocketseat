@@ -46,20 +46,18 @@ const posts = [
   },
 ]
 
-console.log(posts[0]); //só para evitar eslint
-
 export function App() { //componentes sempre com letra maiuscula para não confundir com html
   //impossível renderizar varios componentes sem ter outro componente que os englobe (nesse caso, div)
   return (
     <div>
-      <Header />
+      <Header /> 
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
           {posts.map(post => {
             return (
-              <Post
-                author={post.author}
+              <Post //componente com iterações dentro dele que vão gerar outros componentes
+                author={post.author} //aqui ele busca o author dentro do objeto post que está no vetor posts[]
                 content={post.content}
                 publishedAt={post.publishedAt}
               />
