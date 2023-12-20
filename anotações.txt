@@ -77,4 +77,10 @@ USER STATE
 	* Ex: vetor tava clientes = ['legal', 'muito bom', 'produto fantastico']
 	* Adicionei comentário 'produto muito bom';
 	* uso funcaoAlteraComentario(['legal', 'muito bom', 'produto fantastico', 'produto muito bom']) ==> imutabilidade
+
+TIPOS DE PROGRAMAÇÃO DE COMPUTADORES
+
+* Imperativa: falo passo a passo o que deve ser feito;
+* Declarativa: eu declaro, exponho o resultado que eu quero;
+	* Passo as condições para ter o resultado final;
 		

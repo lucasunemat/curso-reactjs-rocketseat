@@ -10,7 +10,9 @@ import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) { //antes tinha "props" aqui, só para lembrar
 
-    const [comments, setComments] = useState([1, 2]);
+    const [comments, setComments] = useState([
+        'Post deveras bacana risos risos!'
+    ]);
 
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -24,7 +26,10 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
     function handleCreateNewComment() {
         event.preventDefault();
-        setComments([...comments, comments.length + 1]);
+        //comment é o valor de name do textarea
+        const newCommentText = event.target.comment.value;
+        setComments([...comments, newCommentText]);
+        event.target.comment.value = '';
     }
 
     return (
@@ -61,6 +66,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
                 <strong>Deixe seu feedback!</strong>
 
                 <textarea
+                    name='comment'
                     placeholder='Deixe seu comentário :)'
                 />
 
@@ -72,7 +78,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                    return <Comment />
+                    return <Comment content={comment} />
                 })}
             </div>
         </article>
