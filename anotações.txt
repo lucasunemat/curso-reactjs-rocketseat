@@ -65,5 +65,16 @@ COMO VOCÊ CONECTA DADOS DO BACK COM A INTERFACE USANDO COMPONENTES
 * O componente que é iterado vai ser iterado com propriedades deles recebendo valores do vetor retornando pelo backend;
 * Aí basicamente o trabalho é você garantir que esse compoenente iterado tenha, dentro dele, essas propriedades invocadas
 nos lugares corretos (se for imagem, estar no fundo ou na formatação do perfil, se for texto, estar em uma div de conteudo...)
-		  
+
+USER STATE
+
+* submit = evento que pode vir do clique, um enter, etc...
+* Sempre que a gente quer monitorar os valores e mudanças de valores de uma variavel (como um vetor), nós usamos useState no React
+* sempre nós usamos destructuring.
+	* const [comentario, funcaoAlteraComentario()] = useState(valoresIniciasDaSuaVariavel)
+* Com isso, a funcaoAlteraComentario() vai alterar o vetor e ao mesmo tempo avisar para o react que ele precisa re-renderizar a tela;
+* Você tem que passar o novo conjunto de valores que vai ficar apos a operação
+	* Ex: vetor tava clientes = ['legal', 'muito bom', 'produto fantastico']
+	* Adicionei comentário 'produto muito bom';
+	* uso funcaoAlteraComentario(['legal', 'muito bom', 'produto fantastico', 'produto muito bom']) ==> imutabilidade
 		

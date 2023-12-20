@@ -4,16 +4,13 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
+import { useState } from 'react';
 
 //isso é para evitar repetir props.author. O que tô fazendo é destructuring (pegando a propriedade author dentro do objeto props)
 
-const comments = [
-    1,
-    2,
-    3
-]
-
 export function Post({ author, publishedAt, content }) { //antes tinha "props" aqui, só para lembrar
+
+    const [comments, setComments] = useState([1, 2]);
 
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -24,6 +21,11 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         locale: ptBR,
         addSuffix: true //adiciona o 'há' antes da data
     })
+
+    function handleCreateNewComment() {
+        event.preventDefault();
+        setComments([...comments, comments.length + 1]);
+    }
 
     return (
         <article className={styles.post}>
@@ -48,14 +50,14 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
                 {content.map(line => {
                     if (line.type === 'paragraph') {
                         return <p>{line.content}</p>;
-                    }else if (line.type === 'link') {
+                    } else if (line.type === 'link') {
                         return <p><a href="">{line.content}</a></p>
                     }
                 })}
-                    
+
             </div>
 
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback!</strong>
 
                 <textarea
