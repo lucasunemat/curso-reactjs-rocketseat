@@ -75,7 +75,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
                 <textarea
                     name='comment'
-                    value={newCommentText}
+                    value={newCommentText} //text area fica em branco depois porque o valor dele é o estado, e o valor incial do estado é vazio
                     placeholder='Deixe seu comentário :)'
                     onChange={handleNewCommentChange}
                 />
