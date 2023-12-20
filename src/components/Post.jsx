@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import { format, formatDistanceToNow } from 'date-fns';
+import { format, formatDistanceToNow, set } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
@@ -10,9 +10,14 @@ import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) { //antes tinha "props" aqui, só para lembrar
 
+    //aqui controla o estado do portfólio de comentarios. quantos tem, etc
     const [comments, setComments] = useState([
         'Post deveras bacana risos risos!'
     ]);
+
+    //inicie o estado com valor inicial no formato do que vc vai usar no estado.
+    //esse é o que armazena estado do conteudo do textareas
+    const [newCommentText, setNewCommentText] = useState('');
 
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -26,10 +31,13 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
     function handleCreateNewComment() {
         event.preventDefault();
-        //comment é o valor de name do textarea
-        const newCommentText = event.target.comment.value;
-        setComments([...comments, newCommentText]);
-        event.target.comment.value = '';
+        setComments([...comments, newCommentText]); //seta o valor que está no newCommentText (que foi atualizado ao escrever o comentario)
+        setNewCommentText('');
+    }
+
+    function handleNewCommentChange() {
+        //armazena o valor do textarea no estado
+        setNewCommentText(event.target.value);
     }
 
     return (
@@ -67,7 +75,9 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
                 <textarea
                     name='comment'
+                    value={newCommentText}
                     placeholder='Deixe seu comentário :)'
+                    onChange={handleNewCommentChange}
                 />
 
                 <footer>
