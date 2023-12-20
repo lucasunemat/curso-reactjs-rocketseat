@@ -15,8 +15,8 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         'Post deveras bacana risos risos!'
     ]);
 
+    //esse é o estado que armazena estado do conteudo do textareas
     //inicie o estado com valor inicial no formato do que vc vai usar no estado.
-    //esse é o que armazena estado do conteudo do textareas
     const [newCommentText, setNewCommentText] = useState('');
 
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
@@ -30,11 +30,14 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
     })
 
     function handleCreateNewComment() {
-        event.preventDefault();
-        setComments([...comments, newCommentText]); //seta o valor que está no newCommentText (que foi atualizado ao escrever o comentario)
-        setNewCommentText('');
+        event.preventDefault(); //previne o comportamento padrão do form, que é recarregar a página
+        setComments([...comments, newCommentText]); //seta o valor que está no estado do newCommentText (que foi atualizado ao escrever o comentario)
+        setNewCommentText(''); //reset a caixa de texto para vazio por meio de atualização do estado para vazio novamente
     }
 
+    //essa função é chamada toda vez que o usuario digita algo no textarea. 
+    //Ela pega o conteúdo e joga ele para mudar o estado do newCommentText
+    //Essa função é tipo um alarmezinho que vai avisar o useState newCommentText que o valor dele mudou
     function handleNewCommentChange() {
         //armazena o valor do textarea no estado
         setNewCommentText(event.target.value);
@@ -62,9 +65,9 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
             <div className={styles.content}>
                 {content.map(line => {
                     if (line.type === 'paragraph') {
-                        return <p>{line.content}</p>;
+                        return <p key={line.content}>{line.content}</p>; //cada paragrafo precisa de um identificador para evitar o erro de "all children must have a key prop"
                     } else if (line.type === 'link') {
-                        return <p><a href="">{line.content}</a></p>
+                        return <p key={line.content}><a href="">{line.content}</a></p>
                     }
                 })}
 
@@ -88,7 +91,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                    return <Comment content={comment} />
+                    return <Comment key={comment} content={comment} />
                 })}
             </div>
         </article>

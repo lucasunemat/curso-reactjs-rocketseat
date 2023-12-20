@@ -57,6 +57,7 @@ export function App() { //componentes sempre com letra maiuscula para não confu
           {posts.map(post => {
             return (
               <Post //componente com iterações dentro dele que vão gerar outros componentes
+                key={post.id} //identificador de cada post para evitar o erro "all children must have a key prop"
                 author={post.author} //aqui ele busca o author dentro do objeto post que está no vetor posts[]
                 content={post.content}
                 publishedAt={post.publishedAt}

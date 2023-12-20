@@ -83,4 +83,18 @@ TIPOS DE PROGRAMAÇÃO DE COMPUTADORES
 * Imperativa: falo passo a passo o que deve ser feito;
 * Declarativa: eu declaro, exponho o resultado que eu quero;
 	* Passo as condições para ter o resultado final;
+
+SOBRE KEYS
+
+* momentos em que página é re-renderizada:
+	1. Quando ocorre mudança de estado;
+	2. Quando ocorre alteração de propriedade;
+	3. Quando um componente pai renderiza novamente;
+* performance: 
+	* as keys ajudam a verificar quais componentes já tavam na tela antes da mudança que causam a re-renderização;
+	* ou seja, eu ajudo o react a renderizar novamente apenas os novos componentes que foram adicionados pelo usuário quando ele 
+	  adicionou um post ou comentário, por exemplo;
+	* esse valor de key JAMAIS pode mudar 
+		* ou seja, JAMAIS use valor de posição do array para keys, pois se você mudar um elemento de posição, pode bagunçar o tra-
+		  balho do react e gerar re-renderizações desnecessárias;
 		
