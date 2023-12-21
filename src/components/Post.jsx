@@ -11,6 +11,7 @@ import { useState } from 'react';
 export function Post({ author, publishedAt, content }) { //antes tinha "props" aqui, só para lembrar
 
     //aqui controla o estado do portfólio de comentarios. quantos tem, etc
+    //ela é usada para : 1. renderizar os comentarios 2. adicionar novos comentarios com o estado do newCommentText
     const [comments, setComments] = useState([
         'Post deveras bacana risos risos!'
     ]);
@@ -43,6 +44,10 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         setNewCommentText(event.target.value);
     }
 
+    function deleteComment(comment) {
+        alert(`Deletar comentário ${comment}`);
+    }
+
     return (
         <article className={styles.post}>
             <header>
@@ -59,7 +64,10 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
                     </div>
                 </div>
 
-                <time title={publishedDateFormated} dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
+                <time
+                    title={publishedDateFormated}
+                    dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}
+                </time>
             </header>
 
             <div className={styles.content}>
@@ -91,7 +99,13 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                    return <Comment key={comment} content={comment} />
+                    return <Comment
+                        key={comment}
+                        content={comment}
+                        onDeleteComment={deleteComment}
+                    />
+                    //passando a função como propriedade
+                    //a propriedade deleteComment daqui vai receber o valor retornado pela deleteComment do Comment.jsx
                 })}
             </div>
         </article>

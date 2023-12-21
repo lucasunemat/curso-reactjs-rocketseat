@@ -97,4 +97,11 @@ SOBRE KEYS
 	* esse valor de key JAMAIS pode mudar 
 		* ou seja, JAMAIS use valor de posição do array para keys, pois se você mudar um elemento de posição, pode bagunçar o tra-
 		  balho do react e gerar re-renderizações desnecessárias;
+
+COMUNICAÇÃO ENTRE COMPONENTES POR MEIO DE FUNÇÕES 
+
+* Basicamente o componente que controla os estados com useState (ex: Post.jsx) é o que vai ter as funções com regra de negócio
+  (ex: deleteComment()) e que vai ter que passar essas mesmas funções para seus componentes filhos se comunicarem com ele;
+
+* 
 		
