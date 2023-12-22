@@ -44,8 +44,12 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         setNewCommentText(event.target.value);
     }
 
-    function deleteComment(comment) {
-        alert(`Deletar comentário ${comment}`);
+    function deleteComment(commentToDelete) {
+        const commentsWithoutDeletedOne = comments.filter(comment => {
+            return comment !== commentToDelete;
+        })
+        setComments(commentsWithoutDeletedOne);
+        //ideal era ter o id do comentario, mas aqui usamos o content por não termos um backend
     }
 
     return (
@@ -103,6 +107,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
                         key={comment}
                         content={comment}
                         onDeleteComment={deleteComment}
+                    //isso é tipo esse componente Post.jsx dando o "poder" deleteComment para o componente Comment.jsx
                     />
                     //passando a função como propriedade
                     //a propriedade deleteComment daqui vai receber o valor retornado pela deleteComment do Comment.jsx

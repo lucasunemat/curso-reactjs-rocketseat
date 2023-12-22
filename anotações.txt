@@ -103,5 +103,12 @@ COMUNICAÇÃO ENTRE COMPONENTES POR MEIO DE FUNÇÕES
 * Basicamente o componente que controla os estados com useState (ex: Post.jsx) é o que vai ter as funções com regra de negócio
   (ex: deleteComment()) e que vai ter que passar essas mesmas funções para seus componentes filhos se comunicarem com ele;
 
-* 
+IMUTABILIDADE 
+
+* Nunca alteramos valor na memoria do computador, apenas criamos um novo valor para a variavel
+	* Permite maior performance
+	* Criar valor na memoria é mais performático
+		* Ele usa o valor que ta na memoria por comparação e só cria o novo componente a adicionar
+		* Remover um comentário então é criar uma nova lista de comentários sem o comentário indesejado (o que eu quero deletar)
+
 		
