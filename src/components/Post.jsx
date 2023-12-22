@@ -48,7 +48,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         setNewCommentText(event.target.value);
     }
 
-    function deleteComment(commentToDelete) {
+    function deleteComment(commentToDelete) { //acho que o criterio para eu precisar passar uma função para um filho é pq tô precisando de uma prop dele (no caso, o content do comentário)
         const commentsWithoutDeletedOne = comments.filter(comment => {
             return comment !== commentToDelete;
         })

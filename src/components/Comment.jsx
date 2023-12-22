@@ -3,11 +3,19 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
 import styles from './Comment.module.css';
 import { Avatar } from './Avatar';
+import { useState } from 'react';
 
-export function Comment ({content, onDeleteComment}) {
+export function Comment({ content, onDeleteComment }) {
+
+    //o componente vai mudar a partir de interação do usuário? ==> use o useState()
+    const [likeCount, setLikeCount] = useState(0);
+
+    function handleNewComment() {
+        setLikeCount(likeCount + 1);
+    }
 
     function handleDeleteComment() {
-        onDeleteComment(content); 
+        onDeleteComment(content);
         //a onDeleteComment(content) chama a função deleteComment que está no Post.jsx passando o conteudo do comentario
         //o ideal seria o id do comentario, mas aqui usamos o content por não termos um backend
         //aqui estamos refernciando o content de cada componente Comment, o que faz o conteudo aparecer no alert
@@ -33,12 +41,21 @@ export function Comment ({content, onDeleteComment}) {
                 </div>
 
                 <footer>
-                    <button>
+                    <button onClick={handleNewComment}>
                         <ThumbsUp />
-                        Aplaudir <span>20</span>
+                        Aplaudir <span>{likeCount}</span>
                     </button>
                 </footer>
             </div>
         </div>
     );
 }
+
+/*
+ * Conceito: funcao !== funcao()
+    * Uma é a funcao em si, a outra é a execução da funcao
+    * Se você usar funcao() o react vai executar a funcao assim que o componente for renderizado. SEM ESPERAR O CLIQUE DO USUÁRIO
+    * E isso vai gerar um loop infinito de renderização
+    * A solução seria : onClick={() => funcao()}. Por que assim a funcao só vai ser executada quando o usuário clicar no botão
+        * Quando a função estiver vendo o primeiro () ela entende que precisa esperar alguma coisa, alguma ação (no caso, o clique do usuário)
+*/
