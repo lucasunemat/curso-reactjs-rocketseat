@@ -20,6 +20,8 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
     //inicie o estado com valor inicial no formato do que vc vai usar no estado.
     const [newCommentText, setNewCommentText] = useState('');
 
+    console.log(newCommentText)
+
     //tudo que tem aspas simples é string que eu quero que a biblioteca ignore e não formate
     const publishedDateFormated = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR
@@ -40,6 +42,8 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
     //Ela pega o conteúdo e joga ele para mudar o estado do newCommentText
     //Essa função é tipo um alarmezinho que vai avisar o useState newCommentText que o valor dele mudou
     function handleNewCommentChange() {
+        //valor do setCustomValidity é vazio para não dar erro na hora que usuário digitar algo válido
+        event.target.setCustomValidity('');
         //armazena o valor do textarea no estado
         setNewCommentText(event.target.value);
     }
@@ -51,6 +55,12 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
         setComments(commentsWithoutDeletedOne);
         //ideal era ter o id do comentario, mas aqui usamos o content por não termos um backend
     }
+
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('O comentário não pode ser vazio!');
+    }
+
+    const isNewCommentEmpty = newCommentText.length === 0;
 
     return (
         <article className={styles.post}>
@@ -93,10 +103,15 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
                     value={newCommentText} //text area fica em branco depois porque o valor dele é o estado, e o valor incial do estado é vazio
                     placeholder='Deixe seu comentário :)'
                     onChange={handleNewCommentChange}
+                    onInvalid={handleNewCommentInvalid}
+                    required //não precisa colocar required={true} pq o valor true é o default
                 />
 
                 <footer>
-                    <button type='submit'>Comentar</button>
+                    <button
+                        disabled={isNewCommentEmpty}
+                        type='submit'>Comentar
+                    </button>
                 </footer>
 
             </form>

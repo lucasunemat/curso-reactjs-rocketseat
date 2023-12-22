@@ -113,8 +113,14 @@
 
 }
 
-.commentForm button[type=submit]:hover {
+/* quando botão não estiver desabilitado e o mouse passar por cima... */
+.commentForm button[type=submit]:not(:disabled):hover {
     background: var(--green-300);
+}
+
+.commentForm button[type=submit]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed; /* aparece sinal de proibido no lugar do mouse */
 }
 
 .commentList {
