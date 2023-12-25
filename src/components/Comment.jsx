@@ -11,7 +11,24 @@ export function Comment({ content, onDeleteComment }) {
     const [likeCount, setLikeCount] = useState(0);
 
     function handleNewComment() {
-        setLikeCount(likeCount + 1);
+        //setLikeCount(likeCount + 1);
+        //setLikeCount(likeCount + 1);
+        /**
+         * Não adianta colocar varios setLikeCount porque aqui estamos trabalhando com o contexto onde o likeCount é 0
+         * Ou seja, até que essa função seja completamente executada, o likeCount vai continuar sendo 0.
+         * Não importa quantas vezes você chame o setLikeCount, ele só vai ser atualizado quando a função for completamente executada
+         * Para resolver isso, você vai precisar usar uma função que pega sempre o contexto mais atual do likeCount (variavel state)
+         */
+
+        //nesse exemplo abaixo, se eu descomentar a função e deixar duas, vai atualizar de 2 em 2
+        setLikeCount((state) => {
+            return state + 1;
+        })
+        /*
+        setLikeCount((state) => {
+            return state + 1;
+        })
+        */
     }
 
     function handleDeleteComment() {
