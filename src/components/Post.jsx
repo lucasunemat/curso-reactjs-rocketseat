@@ -13,7 +13,7 @@ export function Post({ author, publishedAt, content }) { //antes tinha "props" a
     //aqui controla o estado do portfólio de comentarios. quantos tem, etc
     //ela é usada para : 1. renderizar os comentarios 2. adicionar novos comentarios com o estado do newCommentText
     const [comments, setComments] = useState([
-        'Post deveras bacana risos risos!'
+        'Post deveras bacana'
     ]);
 
     //esse é o estado que armazena estado do conteudo do textareas
